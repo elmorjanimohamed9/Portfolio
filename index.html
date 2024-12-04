@@ -1,1258 +1,1049 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>El Morjani Mohamed - Web Developer</title>
-    <meta
-      name="description"
-      content="El Morjani Mohamed's portfolio showcasing projects, skills, and experience in web development."
-    />
-    <meta
-      name="keywords"
-      content="El Morjani Mohamed, web developer, full-stack developer, front-end developer, back-end developer, VueJs, ReactJs, Tailwind CSS, Laravel, HTML, CSS, JavaScript, PHP, MySQL, web design, graphic design, photography" />
 
-    <meta name="author" content="El Morjani Mohamed" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Morjani Mohamed - Web Developer</title>
+  <meta name="description"
+    content="El Morjani Mohamed's portfolio showcasing projects, skills, and experience in web development." />
+  <meta name="keywords"
+    content="El Morjani Mohamed, web developer, full-stack developer, front-end developer, back-end developer, VueJs, ReactJs, Tailwind CSS, Laravel, HTML, CSS, JavaScript, PHP, MySQL, web design, graphic design, photography" />
 
-    <!--
+  <meta name="author" content="El Morjani Mohamed" />
+
+  <!--
     - favicon
   -->
-    <link
-      rel="shortcut icon"
-      href="./assets/images/logo.png"
-      type="image/x-icon"
-    />
+  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon" />
 
-    <!--
+  <!--
     - custom css link
   -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!--
+  <!--
     - google font link
   -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- devicon link -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <!-- font awesome link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  <!-- devicon link -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script
-      type="text/javascript"
-      src="https://cdn.emailjs.com/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init("dc3gbjZ2VaVo2qUFp");
-      })();
-    </script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("dc3gbjZ2VaVo2qUFp");
+    })();
+  </script>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
 
-  <body>
-    <!-- #toast -->
-    <div class="notifications"></div>
-    <!--
+<body>
+  <!-- #toast -->
+  <div class="notifications"></div>
+  <!--
     - #MAIN
   -->
 
-    <main>
-      <!--
+  <main>
+    <!--
       - #SIDEBAR
     -->
 
-      <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-          <figure class="avatar-box">
-            <img
-              src="./assets/images/my-avatar.png"
-              alt="Mohamed El Morjani"
-              width="80"
-            />
-          </figure>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Mohamed El Morjani" width="80" />
+        </figure>
 
-          <div class="info-content">
-            <div class="name-badge">
-              <h1 class="name" title="Mohamed El Morjani">
-                Mohamed El Morjani
-              </h1>
-              <img
-                class="badge-check"
-                src="./assets/images/badge-check.png"
-                alt="badge check"
-              />
-            </div>
-
-            <p class="title">Full-Stack Developer</p>
+        <div class="info-content">
+          <div class="name-badge">
+            <h1 class="name" title="Mohamed El Morjani">
+              Mohamed El Morjani
+            </h1>
+            <img class="badge-check" src="./assets/images/badge-check.png" alt="badge check" />
           </div>
 
-          <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
-
-            <ion-icon name="chevron-down"></ion-icon>
-          </button>
+          <p class="title">Full-Stack Developer</p>
         </div>
 
-        <div class="sidebar-info_more">
-          <div class="separator"></div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
 
-          <ul class="contacts-list">
-            <li class="contact-item">
-              <div class="icon-box">
-                <i class="fa-solid fa-envelope" style="color: #2a9af6"></i>
-              </div>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
 
-              <div class="contact-info">
-                <p class="contact-title">Email</p>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
 
-                <a
-                  href="mailto:elmorjanimohamed9@gmail.com"
-                  class="contact-link"
-                  >elmorjanimohamed9@gmail.com</a
-                >
-              </div>
-            </li>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <i class="fa-solid fa-envelope" style="color: #2a9af6"></i>
+            </div>
 
-            <li class="contact-item">
-              <div class="icon-box">
-                <i class="fa-solid fa-mobile" style="color: #2a9af6"></i>
-              </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
 
-              <div class="contact-info">
-                <p class="contact-title">Phone</p>
+              <a href="mailto:elmorjanimohamed9@gmail.com" class="contact-link">elmorjanimohamed9@gmail.com</a>
+            </div>
+          </li>
 
-                <a href="tel:+212642090763" class="contact-link"
-                  >+212 642 090 763
-                </a>
-              </div>
-            </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <i class="fa-solid fa-mobile" style="color: #2a9af6"></i>
+            </div>
 
-            <li class="contact-item">
-              <div class="icon-box">
-                <i class="fa-solid fa-calendar-days" style="color: #2a9af6"></i>
-              </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
 
-              <div class="contact-info">
-                <p class="contact-title">Birthday</p>
-
-                <time datetime="1982-06-23">July 11, 2000</time>
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <i class="fa-solid fa-location-dot" style="color: #2a9af6"></i>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Location</p>
-
-                <address>Casablanca-Settat, MOROCCO</address>
-              </div>
-            </li>
-          </ul>
-
-          <div class="separator"></div>
-
-          <ul class="social-list">
-            <li class="social-item">
-              <a
-                href="https://web.facebook.com/mohamed.morjani.12"
-                class="social-link"
-              >
-                <ion-icon name="logo-facebook"></ion-icon>
+              <a href="tel:+212642090763" class="contact-link">+212 642 090 763
               </a>
-            </li>
+            </div>
+          </li>
 
-            <li class="social-item">
-              <a href="https://twitter.com/ElMORJANI01" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <i class="fa-solid fa-calendar-days" style="color: #2a9af6"></i>
+            </div>
 
-            <li class="social-item">
-              <a
-                href="https://www.linkedin.com/in/mohame-elmorjani/"
-                class="social-link"
-              >
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
 
-      <!--
+              <time datetime="1982-06-23">July 11, 2000</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <i class="fa-solid fa-location-dot" style="color: #2a9af6"></i>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Casablanca-Settat, MOROCCO</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/el-morjani-mohamed/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/elmorjanimohamed9" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!--
       - #main-content
     -->
 
-      <div class="main-content">
-        <!--
+    <div class="main-content">
+      <!--
         - #NAVBAR
       -->
 
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <button class="navbar-link active" data-nav-link>About</button>
-            </li>
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
 
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Resume</button>
-            </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
 
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Portfolio</button>
-            </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
 
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Blog</button>
-            </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
 
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Contact</button>
-            </li>
-          </ul>
-        </nav>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+        </ul>
+      </nav>
 
-        <!--
+      <!--
         - #ABOUT
       -->
 
-        <article class="about active" data-page="about">
-          <header>
-            <h2 class="h2 article-title">About me</h2>
-          </header>
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
 
-          <section class="about-text">
-            <p>
-              As a first-year student at YouCode, I'm driven by a passion for
-              crafting exceptional digital experiences. With a focus on becoming
-              a skilled Full-Stack Developer, my expertise lies in front-end
-              development, where I excel in VueJs, Tailwind CSS, and Laravel. I
-              am dedicated to mastering the latest front-end technologies to
-              create visually stunning and intuitive user interfaces.
-            </p>
+        <section class="about-text">
+          <p>
+            As a first-year student at YouCode, I'm driven by a passion for
+            crafting exceptional digital experiences. With a focus on becoming
+            a skilled Full-Stack Developer, my expertise lies in front-end
+            development, where I excel in VueJs, Tailwind CSS, and Laravel. I
+            am dedicated to mastering the latest front-end technologies to
+            create visually stunning and intuitive user interfaces.
+          </p>
 
-            <p>
-              My goal is to leverage my skills to build websites that are not
-              only functional but also elevate the user experience, leaving a
-              lasting impression on visitors.
-            </p>
-          </section>
+          <p>
+            My goal is to leverage my skills to build websites that are not
+            only functional but also elevate the user experience, leaving a
+            lasting impression on visitors.
+          </p>
+        </section>
 
-          <!--
+        <!--
           - service
         -->
 
-          <section class="service">
-            <h3 class="h3 service-title">What i'm doing</h3>
+        <section class="service">
+          <h3 class="h3 service-title">What i'm doing</h3>
 
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <i class="fa-solid fa-pen-ruler" style="color: #2a9af6"></i>
-                </div>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-pen-ruler" style="color: #2a9af6"></i>
+              </div>
 
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web design</h4>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web design</h4>
 
-                  <p class="service-item-text">
-                    The most modern and high-quality design made at a
-                    professional level.
-                  </p>
-                </div>
-              </li>
+                <p class="service-item-text">
+                  The most modern and high-quality design made at a
+                  professional level.
+                </p>
+              </div>
+            </li>
 
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <i class="fa-solid fa-file-code" style="color: #2a9af6"></i>
-                </div>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-file-code" style="color: #2a9af6"></i>
+              </div>
 
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web development</h4>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web development</h4>
 
-                  <p class="service-item-text">
-                    High-quality development of sites at the professional level.
-                  </p>
-                </div>
-              </li>
+                <p class="service-item-text">
+                  High-quality development of sites at the professional level.
+                </p>
+              </div>
+            </li>
 
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <i class="fa-solid fa-palette" style="color: #2a9af6"></i>
-                </div>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-palette" style="color: #2a9af6"></i>
+              </div>
 
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Graphic Design</h4>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Graphic Design</h4>
 
-                  <p class="service-item-text">
-                    Creative and professional design solutions.
-                  </p>
-                </div>
-              </li>
+                <p class="service-item-text">
+                  Creative and professional design solutions.
+                </p>
+              </div>
+            </li>
 
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <i class="fa-solid fa-photo-film" style="color: #2a9af6"></i>
-                </div>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-photo-film" style="color: #2a9af6"></i>
+              </div>
 
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Photography</h4>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Photography</h4>
 
-                  <p class="service-item-text">
-                    I make high-quality photos of any category at a professional
-                    level.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
+                <p class="service-item-text">
+                  I make high-quality photos of any category at a professional
+                  level.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
 
-          <!--
+        <!--
           - testimonials
         -->
 
-          <section class="testimonials">
-            <h3 class="h3 testimonials-title">Testimonials</h3>
+        <section class="testimonials">
+          <h3 class="h3 testimonials-title">Testimonials</h3>
 
-            <ul class="testimonials-list has-scrollbar">
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/Testimonials/Aymane.png"
-                      alt="Aymane Benhima"
-                      width="60"
-                      loading="lazy"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <div class="testimonials-title-profile">
-                    <h4
-                      class="h4 testimonials-item-title"
-                      data-testimonials-title
-                    >
-                      Aymane Benhima
-                    </h4>
-                    <!-- Lien LinkedIn -->
-                    <a
-                      href="https://www.linkedin.com/in/aymanebenhima/"
-                      class="testimonials-linkedin"
-                      data-modal-linkedin
-                      target="_blank"
-                    >
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </div>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      As a mentor in web development, I have had the pleasure of
-                      working closely with Mohamed, and I am consistently
-                      impressed by his enthusiasm, dedication, and remarkable
-                      talent in web design. Mohamed's passion for web
-                      development shines through in every brief project he
-                      undertakes. His dedication to mastering the craft is
-                      evident in his approach, especially when building web apps
-                      from scratch. This not only showcases his technical skills
-                      but also highlights his creative mindset.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/Testimonials/Yassir.png"
-                      alt="yassir elkhaili"
-                      width="60"
-                      loading="lazy"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <div class="testimonials-title-profile">
-                    <h4
-                      class="h4 testimonials-item-title"
-                      data-testimonials-title
-                    >
-                      Yassir Elkhaili
-                    </h4>
-                    <!-- Lien LinkedIn -->
-                    <a
-                      href="https://www.linkedin.com/in/yassirelkhaili/"
-                      class="testimonials-linkedin"
-                      data-modal-linkedin
-                      target="_blank"
-                    >
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </div>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Having worked closely with Mohammed at YouCode, I've been
-                      consistently impressed by his expertise in UI/UX
-                      development. His proficiency with tools like TailwindCSS
-                      and design platforms such as Illustrator and Figma is
-                      evident. Mohammed's impactful contributions to projects
-                      like PeoplePerTask highlight his ability to craft
-                      user-centric digital experiences with finesse. His blend
-                      of technical skill and creative vision makes him a
-                      standout talent in the field. I wholeheartedly endorse
-                      Mohammed for any UI/UX development endeavors.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/Testimonials/Abdelghani.png"
-                      alt="Abdelghani"
-                      width="60"
-                      loading="lazy"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <div class="testimonials-title-profile">
-                    <h4
-                      class="h4 testimonials-item-title"
-                      data-testimonials-title
-                    >
-                      Abdelghani Ait Tamghart
-                    </h4>
-                    <!-- Lien LinkedIn -->
-                    <a
-                      href="https://www.linkedin.com/in/abdelghani-ait-tamghart-210a7821a/"
-                      class="testimonials-linkedin"
-                      data-modal-linkedin
-                      target="_blank"
-                    >
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </div>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      I highly recommend El Morjani Mohamed, a brilliant
-                      Full-Stack Developer and UI/UX Specialist whom I had the
-                      pleasure of studying with at YouCode. His expertise in
-                      Vue.js, Tailwind CSS, and Laravel, combined with his
-                      exceptional design skills, truly sets him apart. Mohamed
-                      consistently delivers high-quality, user-friendly web
-                      applications. He is dedicated, innovative, and a valuable
-                      asset to any team.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/Testimonials/zakaria.png"
-                      alt="Abdelghani"
-                      width="60"
-                      loading="lazy"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <div class="testimonials-title-profile">
-                    <h4
-                      class="h4 testimonials-item-title"
-                      data-testimonials-title
-                    >
-                      Zakaria TALEB ESSALAMA
-                    </h4>
-                    <!-- Lien LinkedIn -->
-                    <a
-                      href="https://www.linkedin.com/in/zakaria-talebessalama/"
-                      class="testimonials-linkedin"
-                      data-modal-linkedin
-                      target="_blank"
-                    >
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </div>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Mohamed El Morjani se distingue par sa maîtrise de Laravel
-                      et ses compétences en développement web, combinant une
-                      discipline exemplaire et une créativité remarquable pour
-                      réaliser des projets web innovants et performants.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/Testimonials/youssef.png"
-                      alt="Abdelghani"
-                      width="60"
-                      loading="lazy"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <div class="testimonials-title-profile">
-                    <h4
-                      class="h4 testimonials-item-title"
-                      data-testimonials-title
-                    >
-                    Youssef BERROUCH
-                    </h4>
-                    <!-- Lien LinkedIn -->
-                    <a
-                      href="https://www.linkedin.com/in/youssef-berrouch-17a941193/"
-                      class="testimonials-linkedin"
-                      data-modal-linkedin
-                      target="_blank"
-                    >
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </div>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      had the pleasure of working with Mohammed, where he
-                      excelled as both a UI/UX designer and Laravel developer.
-                      Mohammed's ability to create intuitive, visually appealing
-                      designs and efficiently develop them into functional
-                      applications was invaluable. His positive attitude and
-                      collaborative spirit made him a fantastic team member. I
-                      highly recommend Mohammed for any role that requires a
-                      blend of design and development skills.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials modal
-        -->
-
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img
-                    src="./assets/images/Testimonials/Aymane.png"
-                    alt="Aymane Benhima"
-                    width="80"
-                    data-modal-img
-                  />
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/Testimonials/Aymane.png" alt="Aymane Benhima" width="60" loading="lazy"
+                    data-testimonials-avatar />
                 </figure>
 
-                <img src="./assets/images/icon-quote.svg" alt="quote icon" />
-              </div>
+                <div class="testimonials-title-profile">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>
+                    Aymane Benhima
+                  </h4>
+                  <!-- Lien LinkedIn -->
+                  <a href="https://www.linkedin.com/in/aymanebenhima/" class="testimonials-linkedin" data-modal-linkedin
+                    target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </div>
 
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-modal-title>Aymane Benhima</h4>
-
-                <div data-modal-text>
+                <div class="testimonials-text" data-testimonials-text>
                   <p>
-                    Richard was hired to create a corporate identity. We were
-                    very pleased with the work done. She has a lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum
-                    dolor sit amet, ullamcous cididt consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels
-                    dolore magnarels alia.
+                    As a mentor in web development, I have had the pleasure of
+                    working closely with Mohamed, and I am consistently
+                    impressed by his enthusiasm, dedication, and remarkable
+                    talent in web design. Mohamed's passion for web
+                    development shines through in every brief project he
+                    undertakes. His dedication to mastering the craft is
+                    evident in his approach, especially when building web apps
+                    from scratch. This not only showcases his technical skills
+                    but also highlights his creative mindset.
                   </p>
                 </div>
               </div>
-            </section>
-          </div>
-        </article>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/Testimonials/Yassir.png" alt="yassir elkhaili" width="60" loading="lazy"
+                    data-testimonials-avatar />
+                </figure>
+
+                <div class="testimonials-title-profile">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>
+                    Yassir Elkhaili
+                  </h4>
+                  <!-- Lien LinkedIn -->
+                  <a href="https://www.linkedin.com/in/yassirelkhaili/" class="testimonials-linkedin"
+                    data-modal-linkedin target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </div>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Having worked closely with Mohammed at YouCode, I've been
+                    consistently impressed by his expertise in UI/UX
+                    development. His proficiency with tools like TailwindCSS
+                    and design platforms such as Illustrator and Figma is
+                    evident. Mohammed's impactful contributions to projects
+                    like PeoplePerTask highlight his ability to craft
+                    user-centric digital experiences with finesse. His blend
+                    of technical skill and creative vision makes him a
+                    standout talent in the field. I wholeheartedly endorse
+                    Mohammed for any UI/UX development endeavors.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/Testimonials/Abdelghani.png" alt="Abdelghani" width="60" loading="lazy"
+                    data-testimonials-avatar />
+                </figure>
+
+                <div class="testimonials-title-profile">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>
+                    Abdelghani Ait Tamghart
+                  </h4>
+                  <!-- Lien LinkedIn -->
+                  <a href="https://www.linkedin.com/in/abdelghani-ait-tamghart-210a7821a/" class="testimonials-linkedin"
+                    data-modal-linkedin target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </div>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    I highly recommend El Morjani Mohamed, a brilliant
+                    Full-Stack Developer and UI/UX Specialist whom I had the
+                    pleasure of studying with at YouCode. His expertise in
+                    Vue.js, Tailwind CSS, and Laravel, combined with his
+                    exceptional design skills, truly sets him apart. Mohamed
+                    consistently delivers high-quality, user-friendly web
+                    applications. He is dedicated, innovative, and a valuable
+                    asset to any team.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/Testimonials/zakaria.png" alt="Abdelghani" width="60" loading="lazy"
+                    data-testimonials-avatar />
+                </figure>
+
+                <div class="testimonials-title-profile">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>
+                    Zakaria TALEB ESSALAMA
+                  </h4>
+                  <!-- Lien LinkedIn -->
+                  <a href="https://www.linkedin.com/in/zakaria-talebessalama/" class="testimonials-linkedin"
+                    data-modal-linkedin target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </div>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Mohamed El Morjani se distingue par sa maîtrise de Laravel
+                    et ses compétences en développement web, combinant une
+                    discipline exemplaire et une créativité remarquable pour
+                    réaliser des projets web innovants et performants.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/Testimonials/youssef.png" alt="Abdelghani" width="60" loading="lazy"
+                    data-testimonials-avatar />
+                </figure>
+
+                <div class="testimonials-title-profile">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>
+                    Youssef BERROUCH
+                  </h4>
+                  <!-- Lien LinkedIn -->
+                  <a href="https://www.linkedin.com/in/youssef-berrouch-17a941193/" class="testimonials-linkedin"
+                    data-modal-linkedin target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </div>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    had the pleasure of working with Mohammed, where he
+                    excelled as both a UI/UX designer and Laravel developer.
+                    Mohammed's ability to create intuitive, visually appealing
+                    designs and efficiently develop them into functional
+                    applications was invaluable. His positive attitude and
+                    collaborative spirit made him a fantastic team member. I
+                    highly recommend Mohammed for any role that requires a
+                    blend of design and development skills.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
 
         <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/Testimonials/Aymane.png" alt="Aymane Benhima" width="80" data-modal-img />
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon" />
+            </div>
+
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title>Aymane Benhima</h4>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were
+                  very pleased with the work done. She has a lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum
+                  dolor sit amet, ullamcous cididt consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels
+                  dolore magnarels alia.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <!--
         - #RESUME
       -->
 
-        <article class="resume" data-page="resume">
-          <header>
-            <h2 class="h2 article-title">Resume</h2>
-          </header>
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
 
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <i
-                  class="fa-solid fa-graduation-cap"
-                  style="color: #2a9af6"
-                ></i>
-              </div>
-
-              <h3 class="h3">Education</h3>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-graduation-cap" style="color: #2a9af6"></i>
             </div>
 
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">YouCode UM6P</h4>
+
+              <span>2023 — Present</span>
+
+              <p class="timeline-text">
+                First-year student at YouCode aspiring to become a skilled
+                Full-Stack Developer with a strong focus on front-end
+                development.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                Chouaib Doukkali Faculty of Sciences
+              </h4>
+
+              <span>2018 — 2022</span>
+
+              <p class="timeline-text">
+                Bachelor's Degree in Physical Sciences with a specialization
+                in Networks and Telecommunications
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Ras El Ain High School</h4>
+
+              <span>2012 — 2018</span>
+
+              <p class="timeline-text">
+                High School Diploma in Physics and Chemistry
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-briefcase" style="color: #2a9af6"></i>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title"> Stage full stack Developer</h4>
+
+              <span> 15/05/2024 - 15/07/2024 </span>
+
+              <h4 class="company-name"> WebCinq, Marrakech</h4>
+
+              <p class="timeline-text">
+                During my internship at WebCinq, I developed and maintained websites by integrating Figma mockups. I also improved performance and implemented changes requested by clients.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Graphic Designer</h4>
+
+              <span> 2023/05/01 — 2023/08/01 </span>
+
+              <h4 class="company-name">MoujahidCom, Settat</h4>
+
+              <p class="timeline-text">
+                During my internship at MoujahidCom in Settat, I was
+                responsible for designing various marketing materials such as
+                flyers, notebooks, brochures, and advertising stands.
+                Additionally, I oversaw the printing process to ensure the
+                quality of the final products. Check out my portfolio to see
+                examples of my work!
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+          <div class="content-card">
             <ol class="timeline-list">
               <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">YouCode UM6P</h4>
-
-                <span>2023 — Present</span>
-
-                <p class="timeline-text">
-                  First-year student at YouCode aspiring to become a skilled
-                  Full-Stack Developer with a strong focus on front-end
-                  development.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Chouaib Doukkali Faculty of Sciences
+                <h4 class="h4 timeline-item-title-skills">
+                  Frontend Development
                 </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills" data-name="HTML">
+                      <i class="devicon-html5-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <span>2018 — 2022</span>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-css3-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <p class="timeline-text">
-                  Bachelor's Degree in Physical Sciences with a specialization
-                  in Networks and Telecommunications
-                </p>
-              </li>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-bootstrap-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Ras El Ain High School</h4>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-tailwindcss-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <span>2012 — 2018</span>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-javascript-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <p class="timeline-text">
-                  High School Diploma in Physics and Chemistry
-                </p>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-vuejs-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+                </ul>
               </li>
             </ol>
-          </section>
-
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <i class="fa-solid fa-briefcase" style="color: #2a9af6"></i>
-              </div>
-
-              <h3 class="h3">Experience</h3>
-            </div>
 
             <ol class="timeline-list">
               <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Graphic Designer</h4>
+                <h4 class="h4 timeline-item-title-skills">
+                  Backend Development
+                </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-php-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <span>2023/05/01 — 2023/08/01 </span>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-laravel-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                <p class="timeline-text">
-                  During my internship at MoujahidCom in Settat, I was
-                  responsible for designing various marketing materials such as
-                  flyers, notebooks, brochures, and advertising stands.
-                  Additionally, I oversaw the printing process to ensure the
-                  quality of the final products. Check out my portfolio to see
-                  examples of my work!
-                </p>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-mysql-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+                </ul>
               </li>
             </ol>
-          </section>
 
-          <section class="skill">
-            <h3 class="h3 skills-title">My skills</h3>
-            <div class="content-card">
-              <ol class="timeline-list">
-                <li class="timeline-item">
-                  <h4 class="h4 timeline-item-title-skills">
-                    Frontend Development
-                  </h4>
-                  <ul class="skills-list">
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills" data-name="HTML">
-                        <i class="devicon-html5-plain colored icon-skills"></i>
-                      </div>
-                    </li>
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title-skills">
+                  Programming Languages
+                </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-c-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ol>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-css3-plain colored icon-skills"></i>
-                      </div>
-                    </li>
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title-skills">
+                  Tools & Environment
+                </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-figma-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-bootstrap-plain colored icon-skills"
-                        ></i>
-                      </div>
-                    </li>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-photoshop-plain icon-skills"></i>
+                    </div>
+                  </li>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-tailwindcss-plain colored icon-skills"
-                        ></i>
-                      </div>
-                    </li>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-illustrator-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-javascript-plain colored icon-skills"
-                        ></i>
-                      </div>
-                    </li>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-vscode-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-vuejs-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ol>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-git-plain colored icon-skills"></i>
+                    </div>
+                  </li>
 
-              <ol class="timeline-list">
-                <li class="timeline-item">
-                  <h4 class="h4 timeline-item-title-skills">
-                    Backend Development
-                  </h4>
-                  <ul class="skills-list">
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-php-plain colored icon-skills"></i>
-                      </div>
-                    </li>
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-github-plain colored-icon icon-skills"></i>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </section>
+      </article>
 
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-laravel-plain colored icon-skills"
-                        ></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-mysql-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ol>
-
-              <ol class="timeline-list">
-                <li class="timeline-item">
-                  <h4 class="h4 timeline-item-title-skills">
-                    Programming Languages
-                  </h4>
-                  <ul class="skills-list">
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-c-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ol>
-
-              <ol class="timeline-list">
-                <li class="timeline-item">
-                  <h4 class="h4 timeline-item-title-skills">
-                    Tools & Environment
-                  </h4>
-                  <ul class="skills-list">
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-figma-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-photoshop-plain icon-skills"></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-illustrator-plain colored icon-skills"
-                        ></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-vscode-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i class="devicon-git-plain colored icon-skills"></i>
-                      </div>
-                    </li>
-
-                    <li class="skills-item">
-                      <div class="icon-box icon-box-skills">
-                        <i
-                          class="devicon-github-plain colored-icon icon-skills"
-                        ></i>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
-          </section>
-        </article>
-
-        <!--
+      <!--
         - #PORTFOLIO
       -->
 
-        <article class="portfolio" data-page="portfolio">
-          <header>
-            <h2 class="h2 article-title">Portfolio</h2>
-          </header>
+      <article class="portfolio" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
 
-          <section class="projects">
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="active" data-filter-btn>All</button>
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>
+                Select category
+              </div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="select-list">
+              <li class="select-item">
+                <button data-select-item>All</button>
               </li>
 
-              <li class="filter-item">
-                <button data-filter-btn>Web design</button>
+              <li class="select-item">
+                <button data-select-item>Web design</button>
               </li>
 
-              <li class="filter-item">
-                <button data-filter-btn>Applications</button>
+              <li class="select-item">
+                <button data-select-item>Applications</button>
               </li>
 
-              <li class="filter-item">
-                <button data-filter-btn>Web development</button>
-              </li>
-            </ul>
-
-            <div class="filter-select-box">
-              <button class="filter-select" data-select>
-                <div class="select-value" data-selecct-value>
-                  Select category
-                </div>
-
-                <div class="select-icon">
-                  <ion-icon name="chevron-down"></ion-icon>
-                </div>
-              </button>
-
-              <ul class="select-list">
-                <li class="select-item">
-                  <button data-select-item>All</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Web design</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Applications</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Web development</button>
-                </li>
-              </ul>
-            </div>
-
-            <ul class="project-list">
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a href="https://bilalchbanat.github.io/PeoplePerTask/">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/projects/peaplePerTask.jpg"
-                      alt="peaplePerTask"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">PeoplePerTask</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a href="https://github.com/ElmorjaniMohamed/chrih-daba">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-2.jpg"
-                      alt="chrih daba"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">chrih daba</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a href="https://github.com/ElmorjaniMohamed/evento">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-3.png"
-                      alt="Evento"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">Evento</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a
-                  href="https://github.com/BENAMARLAHCEN/StadiumStream-AFRICA-CUP"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-4.png"
-                      alt="StadiumStream-AFRICA-CUP"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">StadiumStream-AFRICA-CUP</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="web development"
-              >
-                <a href="https://github.com/ElmorjaniMohamed/WikiGenius">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-5.png"
-                      alt="StadiumStream-AFRICA-CUP"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">WikiGenius</h3>
-
-                  <p class="project-category">Web development</p>
-                </a>
+              <li class="select-item">
+                <button data-select-item>Web development</button>
               </li>
             </ul>
-          </section>
-        </article>
+          </div>
 
-        <!--
+          <ul class="project-list">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://bilalchbanat.github.io/PeoplePerTask/">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/peaplePerTask.jpg" alt="peaplePerTask" loading="lazy" />
+                </figure>
+
+                <h3 class="project-title">PeoplePerTask</h3>
+
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/ElmorjaniMohamed/chrih-daba">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.jpg" alt="chrih daba" loading="lazy" />
+                </figure>
+
+                <h3 class="project-title">chrih daba</h3>
+
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/ElmorjaniMohamed/evento">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.png" alt="Evento" loading="lazy" />
+                </figure>
+
+                <h3 class="project-title">Evento</h3>
+
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/BENAMARLAHCEN/StadiumStream-AFRICA-CUP">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="StadiumStream-AFRICA-CUP" loading="lazy" />
+                </figure>
+
+                <h3 class="project-title">StadiumStream-AFRICA-CUP</h3>
+
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/ElmorjaniMohamed/WikiGenius">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="StadiumStream-AFRICA-CUP" loading="lazy" />
+                </figure>
+
+                <h3 class="project-title">WikiGenius</h3>
+
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!--
         - #BLOG
       -->
 
-        <article class="blog" data-page="blog">
-          <header>
-            <h2 class="h2 article-title">Blog</h2>
-          </header>
+      <article class="blog" data-page="blog">
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
 
-          <section class="blog-posts">
-            <ul class="blog-posts-list">
-              <li class="blog-post-item">
-                <a
-                  href="https://www.linkedin.com/posts/mohamed-elmorjani_tailwindcss-devweb-frontend-activity-7203695547558281216-xoN_?utm_source=share&utm_medium=member_desktop"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-1.jpg"
-                      alt="Design conferences in 2022"
-                      loading="lazy"
-                    />
-                  </figure>
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a
+                href="https://www.linkedin.com/posts/mohamed-elmorjani_tailwindcss-devweb-frontend-activity-7203695547558281216-xoN_?utm_source=share&utm_medium=member_desktop">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy" />
+                </figure>
 
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Web Development</p>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Web Development</p>
 
-                      <span class="dot"></span>
+                    <span class="dot"></span>
 
-                      <time datetime="2022-02-23">June 7, 2024</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      🚀Level up your UIs with Tailwind CSS Animated!
-                    </h3>
-
-                    <p class="blog-text">
-                      Want to add subtle animations to your Tailwind projects?
-                      Tailwind Animated makes it a breeze!
-                    </p>
+                    <time datetime="2022-02-23">June 7, 2024</time>
                   </div>
-                </a>
-              </li>
 
-              <li class="blog-post-item">
-                <a
-                  href="https://www.linkedin.com/posts/mohamed-elmorjani_laravel-php-adminpanel-activity-7193921529309466624-mIR7?utm_source=share&utm_medium=member_desktop"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-2.png"
-                      alt="Best fonts every designer"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <h3 class="h3 blog-item-title">
+                    🚀Level up your UIs with Tailwind CSS Animated!
+                  </h3>
 
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Web Development</p>
+                  <p class="blog-text">
+                    Want to add subtle animations to your Tailwind projects?
+                    Tailwind Animated makes it a breeze!
+                  </p>
+                </div>
+              </a>
+            </li>
 
-                      <span class="dot"></span>
+            <li class="blog-post-item">
+              <a
+                href="https://www.linkedin.com/posts/mohamed-elmorjani_laravel-php-adminpanel-activity-7193921529309466624-mIR7?utm_source=share&utm_medium=member_desktop">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.png" alt="Best fonts every designer" loading="lazy" />
+                </figure>
 
-                      <time datetime="2022-02-23">May 02, 2024</time>
-                    </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Web Development</p>
 
-                    <h3 class="h3 blog-item-title">
-                      Moonshine - A Laravel Admin Panel
-                    </h3>
+                    <span class="dot"></span>
 
-                    <p class="blog-text">
-                      MoonShine is great for creating admin panel, MVP,
-                      backoffice, and CMS.
-                    </p>
+                    <time datetime="2022-02-23">May 02, 2024</time>
                   </div>
-                </a>
-              </li>
 
-              <li class="blog-post-item">
-                <a
-                  href="https://www.linkedin.com/posts/mohamed-elmorjani_%3F%3F%3F%3F%3F-%3F%3F-%3F%3F%3F%3F%3F%3F%3F%3F-%3F%3F%3F%3F-activity-7203709721122369537-AdjJ?utm_source=share&utm_medium=member_desktop"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-3.jpg"
-                      alt="Best fonts every designer"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <h3 class="h3 blog-item-title">
+                    Moonshine - A Laravel Admin Panel
+                  </h3>
 
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Web Development</p>
+                  <p class="blog-text">
+                    MoonShine is great for creating admin panel, MVP,
+                    backoffice, and CMS.
+                  </p>
+                </div>
+              </a>
+            </li>
 
-                      <span class="dot"></span>
+            <li class="blog-post-item">
+              <a
+                href="https://www.linkedin.com/posts/mohamed-elmorjani_%3F%3F%3F%3F%3F-%3F%3F-%3F%3F%3F%3F%3F%3F%3F%3F-%3F%3F%3F%3F-activity-7203709721122369537-AdjJ?utm_source=share&utm_medium=member_desktop">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Best fonts every designer" loading="lazy" />
+                </figure>
 
-                      <time datetime="2022-02-23">May 07, 2024</time>
-                    </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Web Development</p>
 
-                    <h3 class="h3 blog-item-title">
-                      🚀 Free Undraw illustrations for your projects!
-                    </h3>
+                    <span class="dot"></span>
 
-                    <p class="blog-text">
-                      unDraw is a design project that offers free and
-                      customisable SVG images for your websites, products and
-                      applications.
-                    </p>
+                    <time datetime="2022-02-23">May 07, 2024</time>
                   </div>
-                </a>
-              </li>
 
-              <li class="blog-post-item">
-                <a
-                  href="https://www.linkedin.com/posts/mohamed-elmorjani_tailwindcss-colors-webdev-activity-7193886250838171650-vj96?utm_source=share&utm_medium=member_desktop"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-4.png"
-                      alt="Best fonts every designer"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <h3 class="h3 blog-item-title">
+                    🚀 Free Undraw illustrations for your projects!
+                  </h3>
 
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Web Development</p>
+                  <p class="blog-text">
+                    unDraw is a design project that offers free and
+                    customisable SVG images for your websites, products and
+                    applications.
+                  </p>
+                </div>
+              </a>
+            </li>
 
-                      <span class="dot"></span>
+            <li class="blog-post-item">
+              <a
+                href="https://www.linkedin.com/posts/mohamed-elmorjani_tailwindcss-colors-webdev-activity-7193886250838171650-vj96?utm_source=share&utm_medium=member_desktop">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.png" alt="Best fonts every designer" loading="lazy" />
+                </figure>
 
-                      <time datetime="2022-02-23">May 01, 2024</time>
-                    </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Web Development</p>
 
-                    <h3 class="h3 blog-item-title">
-                      Free tool: Tailwind CSS colors ✨
-                    </h3>
+                    <span class="dot"></span>
 
-                    <p class="blog-text">
-                      🎨 Tailscan is a tool that lets you design, debug and
-                      learn Tailwind CSS visually within the browser.
-                    </p>
+                    <time datetime="2022-02-23">May 01, 2024</time>
                   </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
 
-        <!--
+                  <h3 class="h3 blog-item-title">
+                    Free tool: Tailwind CSS colors ✨
+                  </h3>
+
+                  <p class="blog-text">
+                    🎨 Tailscan is a tool that lets you design, debug and
+                    learn Tailwind CSS visually within the browser.
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!--
         - #CONTACT
       -->
 
-        <article class="contact" data-page="contact">
-          <header>
-            <h2 class="h2 article-title">Contact</h2>
-          </header>
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
 
-          <section class="mapbox" data-mapbox>
-            <figure>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3374.5289696986843!2d-8.525245524900734!3d32.2438471110434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdaefdd4fcbbdbc1%3A0x846cbd9f328a7bdb!2sYouCode!5e0!3m2!1sen!2sma!4v1720090736090!5m2!1sen!2sma"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </figure>
-          </section>
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3374.5289696986843!2d-8.525245524900734!3d32.2438471110434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdaefdd4fcbbdbc1%3A0x846cbd9f328a7bdb!2sYouCode!5e0!3m2!1sen!2sma!4v1720090736090!5m2!1sen!2sma"
+              width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+        </section>
 
-          <section class="contact-form">
-            <h3 class="h3 form-title">Contact Form</h3>
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
 
-            <form id="contact-form" class="form">
-              <div class="input-wrapper">
-                <input
-                  type="text"
-                  name="fullname"
-                  class="form-input"
-                  placeholder="Full name"
-                  required
-                  data-form-input
-                />
-                <input
-                  type="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="Email address"
-                  required
-                  data-form-input
-                />
-              </div>
-              <textarea
-                name="message"
-                class="form-input"
-                placeholder="Your Message"
-                required
-                data-form-input
-              ></textarea>
-              <input type="text" name="website" style="display: none" />
-              <div
-                class="g-recaptcha"
-                data-sitekey="6Lc1ifwpAAAAAPzHtePAbXjQ_S0djvxP4oB8_WKP"
-              ></div>
-              <button class="form-btn" type="submit" id="send-button">
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-            </form>
-          </section>
-        </article>
-      </div>
-    </main>
+          <form id="contact-form" class="form">
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
+              <input type="email" name="email" class="form-input" placeholder="Email address" required
+                data-form-input />
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <input type="text" name="website" style="display: none" />
+            <div class="g-recaptcha" data-sitekey="6Lc1ifwpAAAAAPzHtePAbXjQ_S0djvxP4oB8_WKP"></div>
+            <button class="form-btn" type="submit" id="send-button">
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+    </div>
+  </main>
 
-    <!--
+  <!--
     - custom js link
   -->
-    <script defer src="./assets/js/script.js"></script>
+  <script defer src="./assets/js/script.js"></script>
 
-    <!--
+  <!--
     - ionicon link
   -->
-    <script
-      defer
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      defer
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script defer type="application/ld+json">
+  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script defer type="application/ld+json">
       {
         "@context": "http://schema.org",
         "@type": "Person",
@@ -1265,5 +1056,6 @@
         ]
       }
     </script>
-  </body>
+</body>
+
 </html>

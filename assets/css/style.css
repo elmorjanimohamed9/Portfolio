@@ -79,6 +79,7 @@
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
+  --fw-700: 700;
 
   /**
    * shadow
@@ -1001,6 +1002,13 @@ main {
   font-size: var(--fs-6);
   line-height: 1.3;
   margin-bottom: 7px;
+}
+
+.timeline-item .company-name {
+  font-size: var(--fs-8);
+  font-weight: var(--fw-700);
+  color: var(--orange-yellow-crayola);
+  padding: 2px 0 2px 0;
 }
 
 .timeline-item-title-skills {
