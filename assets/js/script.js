@@ -212,3 +212,38 @@ document
       }
     );
   });
+
+  // Theme switcher functionality
+const themeContainer = document.querySelector('.theme-container');
+const themeBtn = document.querySelector('.theme-btn');
+const themeColors = document.querySelectorAll('.theme-color');
+
+// Toggle theme panel
+themeBtn.addEventListener('click', () => {
+  themeContainer.classList.toggle('active');
+});
+
+// Handle color selection
+themeColors.forEach(color => {
+  color.addEventListener('click', () => {
+    // Remove active class from all colors
+    themeColors.forEach(c => c.classList.remove('active'));
+    // Add active class to selected color
+    color.classList.add('active');
+    
+    const selectedColor = color.dataset.color;
+    updateTheme(selectedColor);
+  });
+  
+  // Set active class for saved theme
+  if (color.dataset.color === localStorage.getItem('selected-theme')) {
+    color.classList.add('active');
+  }
+});
+
+// Close panel when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.theme-container')) {
+    themeContainer.classList.remove('active');
+  }
+});

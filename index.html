@@ -48,6 +48,38 @@
 </head>
 
 <body>
+  <!-- Theme switcher button -->
+  <div class="theme-container">
+    <button class="theme-btn" data-theme-btn>
+      <div class="theme-btn__content">
+        <ion-icon name="color-palette-outline" class="theme-btn__icon"></ion-icon>
+        <span class="theme-btn__ripple"></span>
+      </div>
+    </button>
+
+    <div class="theme-panel">
+      <h4 class="theme-panel__title">Theme Colors</h4>
+      <div class="theme-colors">
+        <button class="theme-color" data-color="blue">
+          <span class="theme-color__preview" style="background: linear-gradient(45deg, #2A9AF6, #01F9A6)"></span>
+          <span class="theme-color__name">Ocean</span>
+        </button>
+
+        <button class="theme-color" data-color="purple">
+          <span class="theme-color__preview" style="background: linear-gradient(45deg, #9C27B0, #E91E63)"></span>
+          <span class="theme-color__name">Purple</span>
+        </button>
+
+        <button class="theme-color" data-color="green">
+          <span class="theme-color__preview" style="background: linear-gradient(45deg, #4CAF50, #8BC34A)"></span>
+          <span class="theme-color__name">Forest</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rest of your existing body content -->
+
   <!-- #toast -->
   <div class="notifications"></div>
   <!--
@@ -563,7 +595,8 @@
               <h4 class="company-name"> WebCinq, Marrakech</h4>
 
               <p class="timeline-text">
-                During my internship at WebCinq, I developed and maintained websites by integrating Figma mockups. I also improved performance and implemented changes requested by clients.
+                During my internship at WebCinq, I developed and maintained websites by integrating Figma mockups. I
+                also improved performance and implemented changes requested by clients.
               </p>
             </li>
 
@@ -627,9 +660,10 @@
 
                   <li class="skills-item">
                     <div class="icon-box icon-box-skills">
-                      <i class="devicon-vuejs-plain colored icon-skills"></i>
+                      <i class="devicon-react-original colored icon-skills"></i>
                     </div>
                   </li>
+
                 </ul>
               </li>
             </ol>
@@ -657,6 +691,25 @@
                       <i class="devicon-mysql-plain colored icon-skills"></i>
                     </div>
                   </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-nestjs-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Expressjs.svg" alt="Express" class="custom-icon-expressjs icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-mongodb-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
                 </ul>
               </li>
             </ol>
@@ -684,19 +737,21 @@
                 <ul class="skills-list">
                   <li class="skills-item">
                     <div class="icon-box icon-box-skills">
-                      <i class="devicon-figma-plain colored icon-skills"></i>
+                      <img src="./assets/images/Figma.svg" alt="Figma" class="custom-icon-figma icon-skills">
                     </div>
                   </li>
 
                   <li class="skills-item">
                     <div class="icon-box icon-box-skills">
-                      <i class="devicon-photoshop-plain icon-skills"></i>
+                      <img src="./assets/images/Photoshop.svg" alt="Photoshop"
+                        class="custom-icon-photoshop icon-skills">
                     </div>
                   </li>
 
                   <li class="skills-item">
                     <div class="icon-box icon-box-skills">
-                      <i class="devicon-illustrator-plain colored icon-skills"></i>
+                      <img src="./assets/images/Illustrator.svg" alt="Illustrator"
+                        class="custom-icon-illustrator icon-skills">
                     </div>
                   </li>
 
@@ -717,9 +772,108 @@
                       <i class="devicon-github-plain colored-icon icon-skills"></i>
                     </div>
                   </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Vitejs.svg" alt="Vite" class="custom-icon-vite icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-jest-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Composer.svg" alt="Composer" class="custom-icon icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Postman.svg" alt="Postman" class="custom-icon-postman icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Swagger.svg" alt="Swagger" class="custom-icon icon-skills">
+                    </div>
+                  </li>
+
                 </ul>
               </li>
             </ol>
+
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title-skills">
+                  DevOps & Cloud
+                </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-docker-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-amazonwebservices-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Ubuntu.svg" alt="Ubuntu" class="custom-icon-ubuntu icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/sonarcloud.svg" alt="SonarQube" class="custom-icon icon-skills">
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title-skills">
+                  Gestion de Projet
+                </h4>
+                <ul class="skills-list">
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-jira-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <i class="devicon-trello-plain colored icon-skills"></i>
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Slack.svg" alt="Slack" class="custom-icon-slack icon-skills">
+                    </div>
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="icon-box icon-box-skills">
+                      <img src="./assets/images/Notion.svg" alt="Notion" class="custom-icon-notion icon-skills">
+                    </div>
+                  </li>
+
+                </ul>
+              </li>
+            </ol>
+
           </div>
         </section>
       </article>
