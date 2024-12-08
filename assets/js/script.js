@@ -71,6 +71,80 @@ for (let i = 0; i < selectItems.length; i++) {
   });
 }
 
+// Project modal functionality
+const projectModalContainer = document.querySelector("[data-project-modal-container]");
+const projectOverlay = document.querySelector("[data-project-overlay]");
+const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+
+// Modal elements
+const projectModalTitle = document.querySelector("[data-project-modal-title]");
+const projectModalImg = document.querySelector("[data-project-modal-img]");
+const projectModalDescription = document.querySelector("[data-project-modal-description]");
+const modalTechList = document.querySelector("[data-project-modal-tech]");
+const modalLiveLink = document.querySelector("[data-project-modal-live]");
+const modalGithubLink = document.querySelector("[data-project-modal-github]");
+const modalFigmaLink = document.querySelector("[data-project-modal-figma]");
+
+const projectModalFunc = function () {
+  projectModalContainer.classList.toggle("active");
+  projectOverlay.classList.toggle("active");
+}
+
+projectOverlay.addEventListener("click", projectModalFunc);
+projectModalCloseBtn.addEventListener("click", projectModalFunc);
+
+// Add click event to project items
+const projectItems = document.querySelectorAll(".project-item");
+projectItems.forEach(item => {
+  item.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    // Get project data from data attributes
+    const title = this.querySelector(".project-title").textContent;
+    const img = this.querySelector(".project-img img").src;
+    const description = this.dataset.description;
+    const techStack = this.dataset.techStack?.split(",") || [];
+    const liveLink = this.dataset.liveDemo;
+    const githubLink = this.dataset.github;
+    const figmaLink = this.dataset.figma;
+
+    // Update modal content
+    projectModalTitle.textContent = title;
+    projectModalImg.src = img;
+    projectModalImg.alt = title;
+    projectModalDescription.textContent = description;
+
+    // Create tech stack list
+    modalTechList.innerHTML = techStack.map(tech => 
+      `<li class="tech-item">${tech.trim()}</li>`
+    ).join("");
+
+    // Update links and their visibility
+    if (liveLink) {
+      modalLiveLink.href = liveLink;
+      modalLiveLink.style.display = "flex";
+    } else {
+      modalLiveLink.style.display = "none";
+    }
+
+    if (githubLink) {
+      modalGithubLink.href = githubLink;
+      modalGithubLink.style.display = "flex";
+    } else {
+      modalGithubLink.style.display = "none";
+    }
+
+    if (figmaLink) {
+      modalFigmaLink.href = figmaLink;
+      modalFigmaLink.style.display = "flex";
+    } else {
+      modalFigmaLink.style.display = "none";
+    }
+
+    projectModalFunc();
+  });
+});
+
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
@@ -213,7 +287,7 @@ document
     );
   });
 
-  // Theme switcher functionality
+// Theme switcher functionality
 const themeContainer = document.querySelector('.theme-container');
 const themeBtn = document.querySelector('.theme-btn');
 const themeColors = document.querySelectorAll('.theme-color');
@@ -223,6 +297,100 @@ themeBtn.addEventListener('click', () => {
   themeContainer.classList.toggle('active');
 });
 
+// Theme color update function
+function updateTheme(color) {
+  const root = document.documentElement;
+  const themes = {
+    blue: {
+      primary: '#2A9AF6',
+      secondary: '#01F9A6',
+      gradient: 'linear-gradient(to right, #2A9AF6, #01F9A6)',
+      bgGradient: 'linear-gradient(135deg, #003764, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
+      avatar: './assets/images/my-avatar-blue.png'
+    },
+    purple: {
+      primary: '#b623fe',
+      secondary: '#26cefd',
+      gradient: 'linear-gradient(to right, #b623fe, #26cefd)',
+      bgGradient: 'linear-gradient(135deg, #300048, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
+      avatar: './assets/images/my-avatar-purple.png'
+    },
+    orange: {
+      primary: '#f93a00',
+      secondary: '#f8cc21',
+      gradient: 'linear-gradient(to right, #f93a00, #f8cc21)',
+      bgGradient: 'linear-gradient(135deg, #551400, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
+      avatar: './assets/images/my-avatar-orange.png'
+    }
+  };
+
+  const selectedTheme = themes[color];
+
+  // Update avatar image
+  const avatar = document.querySelector('.my-avatar') || document.querySelector('[alt="Mohamed El Morjani"]');
+  if (avatar) {
+    avatar.src = selectedTheme.avatar;
+  }
+
+  // Update CSS variables
+  root.style.setProperty('--orange-yellow-crayola', selectedTheme.primary);
+  root.style.setProperty('--vegas-gold', selectedTheme.secondary);
+  root.style.setProperty('--text-gradient-blue', selectedTheme.gradient);
+  root.style.setProperty('--bg-gradient-Blue-1', `linear-gradient(to bottom right, 
+    ${selectedTheme.primary},
+    hsla(36, 100%, 69%, 0) 50%)`);
+  root.style.setProperty('--bg-gradient-yellow-2', selectedTheme.bgGradient);
+
+  // Update icon boxes hover effect
+  const style = document.createElement('style');
+  style.textContent = `
+    .icon-box-skills:hover {
+      background: linear-gradient(to bottom right, 
+        ${selectedTheme.primary},
+        hsla(36, 100%, 69%, 0) 50%) !important;
+    }
+    .timeline-item::after {
+      background: ${selectedTheme.gradient} !important;
+      box-shadow: 0 0 0 4px var(--jet);
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 ${selectedTheme.primary}66;
+      }
+      70% {
+        box-shadow: 0 0 0 10px ${selectedTheme.primary}00;
+      }
+      100% {
+        box-shadow: 0 0 0 0 ${selectedTheme.primary}00;
+      }
+    }
+  `;
+
+  // Remove old style element if exists
+  const oldStyle = document.getElementById('theme-styles');
+  if (oldStyle) {
+    oldStyle.remove();
+  }
+
+  // Add new style element
+  style.id = 'theme-styles';
+  document.head.appendChild(style);
+
+  // Update devicon colors
+  const icons = document.querySelectorAll('.icon-box i');
+  icons.forEach(icon => {
+    if (icon.classList.contains('colored')) {
+      icon.style.color = selectedTheme.primary;
+    }
+  });
+
+  // Save theme preference
+  localStorage.setItem('selected-theme', color);
+
+  // Show notification
+  showNotification(`Theme updated to ${color}`, 'success');
+}
+
 // Handle color selection
 themeColors.forEach(color => {
   color.addEventListener('click', () => {
@@ -230,11 +398,11 @@ themeColors.forEach(color => {
     themeColors.forEach(c => c.classList.remove('active'));
     // Add active class to selected color
     color.classList.add('active');
-    
+
     const selectedColor = color.dataset.color;
     updateTheme(selectedColor);
   });
-  
+
   // Set active class for saved theme
   if (color.dataset.color === localStorage.getItem('selected-theme')) {
     color.classList.add('active');
@@ -247,3 +415,38 @@ document.addEventListener('click', (e) => {
     themeContainer.classList.remove('active');
   }
 });
+
+// Load saved theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('selected-theme');
+  if (savedTheme) {
+    updateTheme(savedTheme);
+  }
+});
+
+// Notification function
+function showNotification(message, type = 'success') {
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `
+    <i class="fa-solid fa-circle-check"></i>
+    <div class="content">
+      <div class="title">Success</div>
+      <span>${message}</span>
+    </div>
+    <i class="fa-solid fa-xmark" onclick="this.parentElement.remove()"></i>
+  `;
+
+  const notifications = document.querySelector('.notifications') || (() => {
+    const div = document.createElement('div');
+    div.className = 'notifications';
+    document.body.appendChild(div);
+    return div;
+  })();
+
+  notifications.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 5000);
+}
