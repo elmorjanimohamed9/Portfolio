@@ -176,19 +176,32 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 // contact form variables
-const form = document.querySelector("[data-form]");
+const form = document.getElementById("contact-form");
 const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+const formBtn = document.getElementById("send-button");
+
+function isRecaptchaSolved() {
+  try {
+    return typeof grecaptcha !== "undefined" && grecaptcha.getResponse().length > 0;
+  } catch (_) {
+    return false;
+  }
+}
+
+function updateSubmitState() {
+  if (!formBtn) return;
+  if (!form) {
+    formBtn.disabled = true;
+    return;
+  }
+  const formValid = typeof form.checkValidity === "function" ? form.checkValidity() : false;
+  formBtn.disabled = !(formValid && isRecaptchaSolved());
+}
 
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+    updateSubmitState();
   });
 }
 
@@ -277,8 +290,7 @@ document
         if (typeof grecaptcha !== "undefined") {
           try { grecaptcha.reset(); } catch (_) {}
         }
-        const sendBtn = document.getElementById("send-button");
-        if (sendBtn) sendBtn.disabled = true;
+        updateSubmitState();
       },
       function () {
         // Show error toast
@@ -292,26 +304,22 @@ document
         if (typeof grecaptcha !== "undefined") {
           try { grecaptcha.reset(); } catch (_) {}
         }
-        const sendBtn = document.getElementById("send-button");
-        if (sendBtn) sendBtn.disabled = true;
+        updateSubmitState();
       }
     );
   });
 
 // reCAPTCHA callbacks
 window.onRecaptchaSuccess = function () {
-  const sendBtn = document.getElementById("send-button");
-  if (sendBtn) sendBtn.disabled = false;
+  updateSubmitState();
 };
 
 window.onRecaptchaExpired = function () {
-  const sendBtn = document.getElementById("send-button");
-  if (sendBtn) sendBtn.disabled = true;
+  updateSubmitState();
 };
 
 window.onRecaptchaError = function () {
-  const sendBtn = document.getElementById("send-button");
-  if (sendBtn) sendBtn.disabled = true;
+  updateSubmitState();
   createToast(
     "error",
     "fa-solid fa-circle-exclamation",
