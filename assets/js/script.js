@@ -272,8 +272,13 @@ document
           "Message sent successfully!"
         );
 
-        // Reset the form
+        // Reset the form and reCAPTCHA
         document.getElementById("contact-form").reset();
+        if (typeof grecaptcha !== "undefined") {
+          try { grecaptcha.reset(); } catch (_) {}
+        }
+        const sendBtn = document.getElementById("send-button");
+        if (sendBtn) sendBtn.disabled = true;
       },
       function () {
         // Show error toast
@@ -283,9 +288,37 @@ document
           "Error",
           "Failed to send message."
         );
+        // Reset reCAPTCHA on error as well
+        if (typeof grecaptcha !== "undefined") {
+          try { grecaptcha.reset(); } catch (_) {}
+        }
+        const sendBtn = document.getElementById("send-button");
+        if (sendBtn) sendBtn.disabled = true;
       }
     );
   });
+
+// reCAPTCHA callbacks
+window.onRecaptchaSuccess = function () {
+  const sendBtn = document.getElementById("send-button");
+  if (sendBtn) sendBtn.disabled = false;
+};
+
+window.onRecaptchaExpired = function () {
+  const sendBtn = document.getElementById("send-button");
+  if (sendBtn) sendBtn.disabled = true;
+};
+
+window.onRecaptchaError = function () {
+  const sendBtn = document.getElementById("send-button");
+  if (sendBtn) sendBtn.disabled = true;
+  createToast(
+    "error",
+    "fa-solid fa-circle-exclamation",
+    "Error",
+    "CAPTCHA error, please try again."
+  );
+};
 
 // Theme switcher functionality
 const themeContainer = document.querySelector('.theme-container');

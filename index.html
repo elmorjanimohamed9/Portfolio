@@ -1288,8 +1288,8 @@
             </div>
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
             <input type="text" name="website" style="display: none" />
-            <div class="g-recaptcha" data-sitekey="6Lc1ifwpAAAAAPzHtePAbXjQ_S0djvxP4oB8_WKP"></div>
-            <button class="form-btn" type="submit" id="send-button">
+            <div class="g-recaptcha" data-sitekey="6Lc1ifwpAAAAAPzHtePAbXjQ_S0djvxP4oB8_WKP" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired" data-error-callback="onRecaptchaError"></div>
+            <button class="form-btn" type="submit" id="send-button" disabled>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
