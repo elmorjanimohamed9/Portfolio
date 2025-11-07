@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap for live production domain
+Sitemap: https://elmorjanimohamed.vercel.app/sitemap.xml
+

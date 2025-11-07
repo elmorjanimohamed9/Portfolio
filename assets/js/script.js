@@ -54,7 +54,7 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () {
@@ -368,7 +368,7 @@ function updateTheme(color) {
   const selectedTheme = themes[color];
 
   // Update avatar image
-  const avatar = document.querySelector('.my-avatar') || document.querySelector('[alt="Mohamed El Morjani"]');
+  const avatar = document.querySelector('.avatar-box img');
   if (avatar) {
     avatar.src = selectedTheme.avatar;
   }
@@ -420,7 +420,7 @@ function updateTheme(color) {
   // Update devicon colors
   const icons = document.querySelectorAll('.icon-box i');
   icons.forEach(icon => {
-    if (icon.classList.contains('colored')) {
+    if (icon.classList.contains('icon-color')) {
       icon.style.color = selectedTheme.primary;
     }
   });
