@@ -10,9 +10,11 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () {
-  elementToggleFunc(sidebar);
-});
+if (sidebarBtn) {
+  sidebarBtn.addEventListener("click", function () {
+    elementToggleFunc(sidebar);
+  });
+}
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -34,22 +36,25 @@ const testimonialsModalFunc = function () {
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
   testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector(
-      "[data-testimonials-title]"
-    ).innerHTML;
-    modalText.innerHTML = this.querySelector(
-      "[data-testimonials-text]"
-    ).innerHTML;
+    const avatar = this.querySelector("[data-testimonials-avatar]");
+    if (avatar) {
+      modalImg.src = avatar.src;
+      modalImg.alt = avatar.alt;
+    }
+    modalTitle.textContent = this.querySelector("[data-testimonials-title]")?.textContent ?? "";
+    modalText.textContent = this.querySelector("[data-testimonials-text]")?.textContent ?? "";
 
     testimonialsModalFunc();
   });
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+}
+if (overlay) {
+  overlay.addEventListener("click", testimonialsModalFunc);
+}
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -57,9 +62,11 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () {
-  elementToggleFunc(this);
-});
+if (select) {
+  select.addEventListener("click", function () {
+    elementToggleFunc(this);
+  });
+}
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
@@ -90,8 +97,23 @@ const projectModalFunc = function () {
   projectOverlay.classList.toggle("active");
 }
 
-projectOverlay.addEventListener("click", projectModalFunc);
-projectModalCloseBtn.addEventListener("click", projectModalFunc);
+if (projectOverlay && projectModalCloseBtn && projectModalContainer) {
+  projectOverlay.addEventListener("click", projectModalFunc);
+  projectModalCloseBtn.addEventListener("click", projectModalFunc);
+}
+
+// Safe URL helper — only allow http: and https: protocols
+function safeSetHref(anchorEl, url) {
+  if (!anchorEl || !url) return false;
+  try {
+    const parsed = new URL(url, window.location.href);
+    if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return false;
+    anchorEl.href = parsed.toString();
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
 
 // Add click event to project items
 const projectItems = document.querySelectorAll(".project-item");
@@ -115,30 +137,40 @@ projectItems.forEach(item => {
     projectModalDescription.textContent = description;
 
     // Create tech stack list
-    modalTechList.innerHTML = techStack.map(tech => 
-      `<li class="tech-item">${tech.trim()}</li>`
-    ).join("");
+    modalTechList.replaceChildren();
+    techStack.forEach((tech) => {
+      const li = document.createElement("li");
+      li.className = "tech-item";
+      li.textContent = tech.trim();
+      modalTechList.appendChild(li);
+    });
 
     // Update links and their visibility
-    if (liveLink) {
-      modalLiveLink.href = liveLink;
+    if (liveLink && safeSetHref(modalLiveLink, liveLink)) {
       modalLiveLink.style.display = "flex";
     } else {
-      modalLiveLink.style.display = "none";
+      if (modalLiveLink) {
+        modalLiveLink.removeAttribute("href");
+        modalLiveLink.style.display = "none";
+      }
     }
 
-    if (githubLink) {
-      modalGithubLink.href = githubLink;
+    if (githubLink && safeSetHref(modalGithubLink, githubLink)) {
       modalGithubLink.style.display = "flex";
     } else {
-      modalGithubLink.style.display = "none";
+      if (modalGithubLink) {
+        modalGithubLink.removeAttribute("href");
+        modalGithubLink.style.display = "none";
+      }
     }
 
-    if (figmaLink) {
-      modalFigmaLink.href = figmaLink;
+    if (figmaLink && safeSetHref(modalFigmaLink, figmaLink)) {
       modalFigmaLink.style.display = "flex";
     } else {
-      modalFigmaLink.style.display = "none";
+      if (modalFigmaLink) {
+        modalFigmaLink.removeAttribute("href");
+        modalFigmaLink.style.display = "none";
+      }
     }
 
     projectModalFunc();
@@ -161,7 +193,7 @@ const filterFunc = function (selectedValue) {
 };
 
 // add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+let lastClickedBtn = filterBtn.length > 0 ? filterBtn[0] : null;
 
 for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
@@ -169,7 +201,7 @@ for (let i = 0; i < filterBtn.length; i++) {
     selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
-    lastClickedBtn.classList.remove("active");
+    if (lastClickedBtn) lastClickedBtn.classList.remove("active");
     this.classList.add("active");
     lastClickedBtn = this;
   });
@@ -230,25 +262,45 @@ for (let i = 0; i < navigationLinks.length; i++) {
 let notifications = document.querySelector(".notifications");
 
 function createToast(type, icon, title, text) {
-  let newToast = document.createElement("div");
-  newToast.innerHTML = `
-     <div class="toast ${type}">
-        <i class="${icon}"></i>
-        <div class="content">
-          <div class="title">${title}</div>
-          <span>${text}</span>
-        </div>
-        <i class="fa-solid fa-xmark" onclick="this.parentElement.remove()"></i>
-      </div>
-  `;
-  notifications.appendChild(newToast);
-  newToast.timeOut = setTimeout(() => newToast.remove(), 5000);
+  if (!notifications) return;
+  const toastWrapper = document.createElement("div");
+
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+
+  const iconEl = document.createElement("i");
+  iconEl.className = icon;
+
+  const contentDiv = document.createElement("div");
+  contentDiv.className = "content";
+
+  const titleDiv = document.createElement("div");
+  titleDiv.className = "title";
+  titleDiv.textContent = title;
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = text;
+
+  contentDiv.appendChild(titleDiv);
+  contentDiv.appendChild(textSpan);
+
+  const closeIcon = document.createElement("i");
+  closeIcon.className = "fa-solid fa-xmark";
+  closeIcon.addEventListener("click", () => toastWrapper.remove());
+
+  toast.appendChild(iconEl);
+  toast.appendChild(contentDiv);
+  toast.appendChild(closeIcon);
+  toastWrapper.appendChild(toast);
+
+  notifications.appendChild(toastWrapper);
+  toastWrapper.timeOut = setTimeout(() => toastWrapper.remove(), 5000);
 }
 
 /// Submit contact form and show toast notifications
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (event) {
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Check the honeypot field
@@ -308,6 +360,7 @@ document
       }
     );
   });
+}
 
 // reCAPTCHA callbacks
 window.onRecaptchaSuccess = function () {
@@ -334,9 +387,11 @@ const themeBtn = document.querySelector('.theme-btn');
 const themeColors = document.querySelectorAll('.theme-color');
 
 // Toggle theme panel
-themeBtn.addEventListener('click', () => {
-  themeContainer.classList.toggle('active');
-});
+if (themeBtn && themeContainer) {
+  themeBtn.addEventListener('click', () => {
+    themeContainer.classList.toggle('active');
+  });
+}
 
 // Theme color update function
 function updateTheme(color) {
@@ -452,7 +507,7 @@ themeColors.forEach(color => {
 
 // Close panel when clicking outside
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.theme-container')) {
+  if (themeContainer && !e.target.closest('.theme-container')) {
     themeContainer.classList.remove('active');
   }
 });
@@ -467,25 +522,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Notification function
 function showNotification(message, type = 'success') {
-  const toast = document.createElement('div');
-  toast.className = `toast ${type}`;
-  toast.innerHTML = `
-    <i class="fa-solid fa-circle-check"></i>
-    <div class="content">
-      <div class="title">Success</div>
-      <span>${message}</span>
-    </div>
-    <i class="fa-solid fa-xmark" onclick="this.parentElement.remove()"></i>
-  `;
-
-  const notifications = document.querySelector('.notifications') || (() => {
+  const notifContainer = document.querySelector('.notifications') || (() => {
     const div = document.createElement('div');
     div.className = 'notifications';
     document.body.appendChild(div);
     return div;
   })();
 
-  notifications.appendChild(toast);
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+
+  const iconEl = document.createElement('i');
+  iconEl.className = 'fa-solid fa-circle-check';
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'content';
+
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'title';
+  titleDiv.textContent = 'Success';
+
+  const textSpan = document.createElement('span');
+  textSpan.textContent = message;
+
+  contentDiv.appendChild(titleDiv);
+  contentDiv.appendChild(textSpan);
+
+  const closeIcon = document.createElement('i');
+  closeIcon.className = 'fa-solid fa-xmark';
+  closeIcon.addEventListener('click', () => toast.remove());
+
+  toast.appendChild(iconEl);
+  toast.appendChild(contentDiv);
+  toast.appendChild(closeIcon);
+
+  notifContainer.appendChild(toast);
 
   setTimeout(() => {
     toast.remove();
