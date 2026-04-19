@@ -211,10 +211,29 @@ for (let i = 0; i < filterBtn.length; i++) {
 const form = document.getElementById("contact-form");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.getElementById("send-button");
+const EMAILJS_CONFIG = {
+  publicKey: "dc3gbjZ2VaVo2qUFp",
+  serviceId: "service_xykr7zs",
+  templateId: "template_r0wg1rx",
+};
+
+let recaptchaApiReady = false;
+let emailJsInitialized = false;
+
+function initializeEmailJs() {
+  if (emailJsInitialized || typeof emailjs === "undefined") return;
+  emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+  emailJsInitialized = true;
+}
+
+function refreshRecaptchaReadyState() {
+  recaptchaApiReady = typeof grecaptcha !== "undefined";
+  updateSubmitState();
+}
 
 function isRecaptchaSolved() {
   try {
-    return typeof grecaptcha !== "undefined" && grecaptcha.getResponse().length > 0;
+    return recaptchaApiReady && grecaptcha.getResponse().length > 0;
   } catch (_) {
     return false;
   }
@@ -315,6 +334,16 @@ if (contactForm) {
     }
 
     // Check reCAPTCHA
+    if (!recaptchaApiReady || typeof grecaptcha === "undefined") {
+      createToast(
+        "error",
+        "fa-solid fa-circle-exclamation",
+        "Error",
+        "CAPTCHA is still loading. Please wait a moment and try again."
+      );
+      return;
+    }
+
     let recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse.length === 0) {
       // reCAPTCHA not verified
@@ -327,7 +356,18 @@ if (contactForm) {
       return;
     }
 
-    emailjs.sendForm("service_xykr7zs", "template_r0wg1rx", this).then(
+    initializeEmailJs();
+    if (!emailJsInitialized) {
+      createToast(
+        "error",
+        "fa-solid fa-circle-exclamation",
+        "Error",
+        "Email service is unavailable. Please try again later."
+      );
+      return;
+    }
+
+    emailjs.sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, this).then(
       function () {
         // Show success toast
         createToast(
@@ -364,15 +404,15 @@ if (contactForm) {
 
 // reCAPTCHA callbacks
 window.onRecaptchaSuccess = function () {
-  updateSubmitState();
+  refreshRecaptchaReadyState();
 };
 
 window.onRecaptchaExpired = function () {
-  updateSubmitState();
+  refreshRecaptchaReadyState();
 };
 
 window.onRecaptchaError = function () {
-  updateSubmitState();
+  refreshRecaptchaReadyState();
   createToast(
     "error",
     "fa-solid fa-circle-exclamation",
@@ -385,6 +425,12 @@ window.onRecaptchaError = function () {
 const themeContainer = document.querySelector('.theme-container');
 const themeBtn = document.querySelector('.theme-btn');
 const themeColors = document.querySelectorAll('.theme-color');
+const themeStylesEl = document.getElementById('theme-styles') || (() => {
+  const style = document.createElement('style');
+  style.id = 'theme-styles';
+  document.head.appendChild(style);
+  return style;
+})();
 
 // Toggle theme panel
 if (themeBtn && themeContainer) {
@@ -438,8 +484,7 @@ function updateTheme(color) {
   root.style.setProperty('--bg-gradient-yellow-2', selectedTheme.bgGradient);
 
   // Update icon boxes hover effect
-  const style = document.createElement('style');
-  style.textContent = `
+  themeStylesEl.textContent = `
     .icon-box-skills:hover {
       background: linear-gradient(to bottom right, 
         ${selectedTheme.primary},
@@ -461,16 +506,6 @@ function updateTheme(color) {
       }
     }
   `;
-
-  // Remove old style element if exists
-  const oldStyle = document.getElementById('theme-styles');
-  if (oldStyle) {
-    oldStyle.remove();
-  }
-
-  // Add new style element
-  style.id = 'theme-styles';
-  document.head.appendChild(style);
 
   // Update devicon colors
   const icons = document.querySelectorAll('.icon-box i');
@@ -514,6 +549,21 @@ document.addEventListener('click', (e) => {
 
 // Load saved theme on page load
 document.addEventListener('DOMContentLoaded', () => {
+  initializeEmailJs();
+  refreshRecaptchaReadyState();
+
+  if (!recaptchaApiReady) {
+    let attempts = 0;
+    const maxAttempts = 20;
+    const recaptchaReadyCheck = setInterval(() => {
+      attempts += 1;
+      refreshRecaptchaReadyState();
+      if (recaptchaApiReady || attempts >= maxAttempts) {
+        clearInterval(recaptchaReadyCheck);
+      }
+    }, 300);
+  }
+
   const savedTheme = localStorage.getItem('selected-theme');
   if (savedTheme) {
     updateTheme(savedTheme);
