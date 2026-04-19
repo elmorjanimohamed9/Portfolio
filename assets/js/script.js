@@ -233,6 +233,19 @@ function refreshRecaptchaReadyState() {
   updateSubmitState();
 }
 
+function pollForRecaptchaReady() {
+  if (recaptchaApiReady) return;
+
+  let attempts = 0;
+  const recaptchaReadyCheck = setInterval(() => {
+    attempts += 1;
+    refreshRecaptchaReadyState();
+    if (recaptchaApiReady || attempts >= RECAPTCHA_MAX_POLL_ATTEMPTS) {
+      clearInterval(recaptchaReadyCheck);
+    }
+  }, RECAPTCHA_POLL_INTERVAL_MS);
+}
+
 function isRecaptchaSolved() {
   try {
     return recaptchaApiReady && grecaptcha.getResponse().length > 0;
@@ -558,17 +571,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   initializeEmailJs();
   refreshRecaptchaReadyState();
-
-  if (!recaptchaApiReady) {
-    let attempts = 0;
-    const recaptchaReadyCheck = setInterval(() => {
-      attempts += 1;
-      refreshRecaptchaReadyState();
-      if (recaptchaApiReady || attempts >= RECAPTCHA_MAX_POLL_ATTEMPTS) {
-        clearInterval(recaptchaReadyCheck);
-      }
-    }, RECAPTCHA_POLL_INTERVAL_MS);
-  }
+  pollForRecaptchaReady();
 
   const savedTheme = localStorage.getItem('selected-theme');
   if (savedTheme) {
