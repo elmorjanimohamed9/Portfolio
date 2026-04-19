@@ -219,6 +219,8 @@ const EMAILJS_CONFIG = {
 
 let recaptchaApiReady = false;
 let emailJsInitialized = false;
+const RECAPTCHA_MAX_POLL_ATTEMPTS = 20;
+const RECAPTCHA_POLL_INTERVAL_MS = 300;
 
 function initializeEmailJs() {
   if (emailJsInitialized || typeof emailjs === "undefined") return;
@@ -425,12 +427,17 @@ window.onRecaptchaError = function () {
 const themeContainer = document.querySelector('.theme-container');
 const themeBtn = document.querySelector('.theme-btn');
 const themeColors = document.querySelectorAll('.theme-color');
-const themeStylesEl = document.getElementById('theme-styles') || (() => {
+
+function getOrCreateThemeStyleElement() {
+  const existingStyle = document.getElementById('theme-styles');
+  if (existingStyle) return existingStyle;
   const style = document.createElement('style');
   style.id = 'theme-styles';
   document.head.appendChild(style);
   return style;
-})();
+}
+
+const themeStylesEl = getOrCreateThemeStyleElement();
 
 // Toggle theme panel
 if (themeBtn && themeContainer) {
@@ -554,14 +561,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!recaptchaApiReady) {
     let attempts = 0;
-    const maxAttempts = 20;
     const recaptchaReadyCheck = setInterval(() => {
       attempts += 1;
       refreshRecaptchaReadyState();
-      if (recaptchaApiReady || attempts >= maxAttempts) {
+      if (recaptchaApiReady || attempts >= RECAPTCHA_MAX_POLL_ATTEMPTS) {
         clearInterval(recaptchaReadyCheck);
       }
-    }, 300);
+    }, RECAPTCHA_POLL_INTERVAL_MS);
   }
 
   const savedTheme = localStorage.getItem('selected-theme');
