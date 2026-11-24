@@ -2734,3 +2734,5 @@ textarea.form-input::-webkit-resizer {
   .stats-list { grid-template-columns: repeat(4, 1fr); }
   .contact-cards-list { grid-template-columns: repeat(2, 1fr); }
 }
+
+.project-logo { display: inline-block; vertical-align: middle; margin-right: 8px; height: 26px; width: auto; background: #fff; border-radius: 6px; padding: 2px 3px; }
