@@ -217,10 +217,7 @@ const EMAILJS_CONFIG = {
   templateId: "template_r0wg1rx",
 };
 
-let recaptchaApiReady = false;
 let emailJsInitialized = false;
-const RECAPTCHA_MAX_POLL_ATTEMPTS = 20;
-const RECAPTCHA_POLL_INTERVAL_MS = 300;
 
 function initializeEmailJs() {
   if (emailJsInitialized || typeof emailjs === "undefined") return;
@@ -228,40 +225,10 @@ function initializeEmailJs() {
   emailJsInitialized = true;
 }
 
-function refreshRecaptchaReadyState() {
-  recaptchaApiReady = typeof grecaptcha !== "undefined";
-  updateSubmitState();
-}
-
-function pollForRecaptchaReady() {
-  if (recaptchaApiReady) return;
-
-  let attempts = 0;
-  const recaptchaReadyCheck = setInterval(() => {
-    attempts += 1;
-    refreshRecaptchaReadyState();
-    if (recaptchaApiReady || attempts >= RECAPTCHA_MAX_POLL_ATTEMPTS) {
-      clearInterval(recaptchaReadyCheck);
-    }
-  }, RECAPTCHA_POLL_INTERVAL_MS);
-}
-
-function isRecaptchaSolved() {
-  try {
-    return recaptchaApiReady && grecaptcha.getResponse().length > 0;
-  } catch (_) {
-    return false;
-  }
-}
-
 function updateSubmitState() {
   if (!formBtn) return;
-  if (!form) {
-    formBtn.disabled = true;
-    return;
-  }
-  const formValid = typeof form.checkValidity === "function" ? form.checkValidity() : false;
-  formBtn.disabled = !(formValid && isRecaptchaSolved());
+  const formValid = form && typeof form.checkValidity === "function" ? form.checkValidity() : false;
+  formBtn.disabled = !formValid;
 }
 
 // add event to all form input field
@@ -348,29 +315,6 @@ if (contactForm) {
       return;
     }
 
-    // Check reCAPTCHA
-    if (!recaptchaApiReady || typeof grecaptcha === "undefined") {
-      createToast(
-        "error",
-        "fa-solid fa-circle-exclamation",
-        "Erreur",
-        "Le CAPTCHA est en cours de chargement. Réessayez dans un instant."
-      );
-      return;
-    }
-
-    let recaptchaResponse = grecaptcha.getResponse();
-    if (recaptchaResponse.length === 0) {
-      // reCAPTCHA not verified
-      createToast(
-        "error",
-        "fa-solid fa-circle-exclamation",
-        "Erreur",
-        "Veuillez valider le CAPTCHA."
-      );
-      return;
-    }
-
     initializeEmailJs();
     if (!emailJsInitialized) {
       createToast(
@@ -391,12 +335,8 @@ if (contactForm) {
           "Succès",
           "Message envoyé avec succès !"
         );
-
-        // Reset the form and reCAPTCHA
+        // Reset the form
         document.getElementById("contact-form").reset();
-        if (typeof grecaptcha !== "undefined") {
-          try { grecaptcha.reset(); } catch (_) {}
-        }
         updateSubmitState();
       },
       function () {
@@ -407,34 +347,11 @@ if (contactForm) {
           "Erreur",
           "Échec de l'envoi du message."
         );
-        // Reset reCAPTCHA on error as well
-        if (typeof grecaptcha !== "undefined") {
-          try { grecaptcha.reset(); } catch (_) {}
-        }
         updateSubmitState();
       }
     );
   });
 }
-
-// reCAPTCHA callbacks
-window.onRecaptchaSuccess = function () {
-  refreshRecaptchaReadyState();
-};
-
-window.onRecaptchaExpired = function () {
-  refreshRecaptchaReadyState();
-};
-
-window.onRecaptchaError = function () {
-  refreshRecaptchaReadyState();
-  createToast(
-    "error",
-    "fa-solid fa-circle-exclamation",
-    "Erreur",
-    "Erreur CAPTCHA, veuillez réessayer."
-  );
-};
 
 // Theme switcher functionality
 const themeContainer = document.querySelector('.theme-container');
@@ -570,8 +487,7 @@ document.addEventListener('click', (e) => {
 // Load saved theme on page load
 document.addEventListener('DOMContentLoaded', () => {
   initializeEmailJs();
-  refreshRecaptchaReadyState();
-  pollForRecaptchaReady();
+  updateSubmitState();
 
   const savedTheme = localStorage.getItem('selected-theme');
   if (savedTheme) {

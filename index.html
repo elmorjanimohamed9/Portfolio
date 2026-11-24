@@ -37,7 +37,6 @@
 
   <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <script type="application/ld+json">
   {
@@ -947,8 +946,7 @@
             </div>
             <textarea name="message" class="form-input" placeholder="Votre message" required data-form-input></textarea>
             <input type="text" name="website" style="display: none" />
-            <div class="g-recaptcha" data-sitekey="6LeMTgUsAAAAACx8jCw-edj_8mduMDG1JPDuJZeB" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired" data-error-callback="onRecaptchaError"></div>
-            <button class="form-btn" type="submit" id="send-button" disabled>
+            <button class="form-btn" type="submit" id="send-button">
               <ion-icon name="paper-plane"></ion-icon>
               <span>Envoyer le message</span>
             </button>
