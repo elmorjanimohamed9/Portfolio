@@ -2829,3 +2829,23 @@ textarea.form-input::-webkit-resizer {
 .project-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 0 6px; line-height: 1.4; }
 .project-heading .project-logo { margin-right: 4px; }
 .timeline-bullets li { list-style: disc; }
+
+.lang-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  background: var(--onyx);
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-8, 12px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s ease;
+}
+.lang-btn:hover { border-color: var(--orange-yellow-crayola); }
+.lang-btn:focus-visible { outline: 2px solid var(--white-1); outline-offset: 2px; }
+
+/* Project screenshot gallery */
+.project-gallery { display: flex; gap: 12px; overflow-x: auto; padding: 4px 0 12px; margin-bottom: 16px; scroll-snap-type: x mandatory; }
+.project-gallery[hidden] { display: none; }
+.project-gallery img { height: 360px; width: auto; flex: 0 0 auto; border-radius: 14px; scroll-snap-align: start; border: 1px solid var(--jet, #383838); }
+@media (max-width: 580px) { .project-gallery img { height: 280px; } }

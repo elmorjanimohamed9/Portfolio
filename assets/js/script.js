@@ -124,7 +124,7 @@ projectItems.forEach(item => {
     // Get project data from data attributes
     const title = this.querySelector(".project-title").textContent;
     const img = this.querySelector(".project-img img").src;
-    const description = this.dataset.description;
+    const description = window.i18n ? window.i18n.projectDescription(title, this.dataset.description) : this.dataset.description;
     const techStack = this.dataset.techStack?.split(",") || [];
     const liveLink = this.dataset.liveDemo;
     const githubLink = this.dataset.github;
@@ -135,6 +135,22 @@ projectItems.forEach(item => {
     projectModalImg.src = img;
     projectModalImg.alt = title;
     projectModalDescription.textContent = description;
+
+    // Screenshot gallery (optional)
+    const gallery = document.querySelector("[data-project-gallery]");
+    if (gallery) {
+      gallery.replaceChildren();
+      const shots = (this.dataset.gallery || "").split(",").map((s) => s.trim()).filter(Boolean);
+      shots.forEach((src, i) => {
+        const shot = document.createElement("img");
+        shot.src = src;
+        shot.alt = `${title} - capture ${i + 1}`;
+        shot.loading = "lazy";
+        gallery.appendChild(shot);
+      });
+      gallery.hidden = shots.length === 0;
+      gallery.scrollLeft = 0;
+    }
 
     // Create tech stack list
     modalTechList.replaceChildren();
@@ -277,10 +293,10 @@ function createToast(type, icon, title, text) {
 
   const titleDiv = document.createElement("div");
   titleDiv.className = "title";
-  titleDiv.textContent = title;
+  titleDiv.textContent = window.i18n ? window.i18n.toast(title) : title;
 
   const textSpan = document.createElement("span");
-  textSpan.textContent = text;
+  textSpan.textContent = window.i18n ? window.i18n.toast(text) : text;
 
   contentDiv.appendChild(titleDiv);
   contentDiv.appendChild(textSpan);
@@ -385,21 +401,21 @@ function updateTheme(color) {
       secondary: '#01F9A6',
       gradient: 'linear-gradient(to right, #2A9AF6, #01F9A6)',
       bgGradient: 'linear-gradient(135deg, #003764, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
-      avatar: './assets/images/my-avatar-blue.png'
+      avatar: './assets/images/my-avatar-blue.webp'
     },
     purple: {
       primary: '#b623fe',
       secondary: '#26cefd',
       gradient: 'linear-gradient(to right, #b623fe, #26cefd)',
       bgGradient: 'linear-gradient(135deg, #300048, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
-      avatar: './assets/images/my-avatar-purple.png'
+      avatar: './assets/images/my-avatar-purple.webp'
     },
     orange: {
       primary: '#f93a00',
       secondary: '#f8cc21',
       gradient: 'linear-gradient(to right, #f93a00, #f8cc21)',
       bgGradient: 'linear-gradient(135deg, #551400, hsla(152, 100%, 30%, 0) 59.86%), hsl(150, 3%, 13%)',
-      avatar: './assets/images/my-avatar-orange.png'
+      avatar: './assets/images/my-avatar-orange.webp'
     }
   };
 
