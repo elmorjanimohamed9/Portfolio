@@ -71,7 +71,7 @@ if (select) {
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
+    let selectedValue = (this.dataset.value || this.innerText).toLowerCase();
     selectValue.innerText = this.innerText;
     elementToggleFunc(select);
     filterFunc(selectedValue);
@@ -197,7 +197,7 @@ let lastClickedBtn = filterBtn.length > 0 ? filterBtn[0] : null;
 
 for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
+    let selectedValue = (this.dataset.value || this.innerText).toLowerCase();
     selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
 
@@ -279,7 +279,7 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
     for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+      if (this.dataset.navLink === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
@@ -342,8 +342,8 @@ if (contactForm) {
       createToast(
         "error",
         "fa-solid fa-circle-exclamation",
-        "Error",
-        "Failed to send message."
+        "Erreur",
+        "Échec de l'envoi du message."
       );
       return;
     }
@@ -353,8 +353,8 @@ if (contactForm) {
       createToast(
         "error",
         "fa-solid fa-circle-exclamation",
-        "Error",
-        "CAPTCHA is still loading. Please wait a moment and try again."
+        "Erreur",
+        "Le CAPTCHA est en cours de chargement. Réessayez dans un instant."
       );
       return;
     }
@@ -365,8 +365,8 @@ if (contactForm) {
       createToast(
         "error",
         "fa-solid fa-circle-exclamation",
-        "Error",
-        "Please complete the CAPTCHA."
+        "Erreur",
+        "Veuillez valider le CAPTCHA."
       );
       return;
     }
@@ -376,8 +376,8 @@ if (contactForm) {
       createToast(
         "error",
         "fa-solid fa-circle-exclamation",
-        "Error",
-        "Email service is unavailable. Please try again later."
+        "Erreur",
+        "Service e-mail indisponible. Réessayez plus tard."
       );
       return;
     }
@@ -388,8 +388,8 @@ if (contactForm) {
         createToast(
           "success",
           "fa-solid fa-circle-check",
-          "Success",
-          "Message sent successfully!"
+          "Succès",
+          "Message envoyé avec succès !"
         );
 
         // Reset the form and reCAPTCHA
@@ -404,8 +404,8 @@ if (contactForm) {
         createToast(
           "error",
           "fa-solid fa-circle-exclamation",
-          "Error",
-          "Failed to send message."
+          "Erreur",
+          "Échec de l'envoi du message."
         );
         // Reset reCAPTCHA on error as well
         if (typeof grecaptcha !== "undefined") {
@@ -431,8 +431,8 @@ window.onRecaptchaError = function () {
   createToast(
     "error",
     "fa-solid fa-circle-exclamation",
-    "Error",
-    "CAPTCHA error, please try again."
+    "Erreur",
+    "Erreur CAPTCHA, veuillez réessayer."
   );
 };
 
