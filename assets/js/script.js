@@ -136,6 +136,22 @@ projectItems.forEach(item => {
     projectModalImg.alt = title;
     projectModalDescription.textContent = description;
 
+    // Screenshot gallery (optional)
+    const gallery = document.querySelector("[data-project-gallery]");
+    if (gallery) {
+      gallery.replaceChildren();
+      const shots = (this.dataset.gallery || "").split(",").map((s) => s.trim()).filter(Boolean);
+      shots.forEach((src, i) => {
+        const shot = document.createElement("img");
+        shot.src = src;
+        shot.alt = `${title} - capture ${i + 1}`;
+        shot.loading = "lazy";
+        gallery.appendChild(shot);
+      });
+      gallery.hidden = shots.length === 0;
+      gallery.scrollLeft = 0;
+    }
+
     // Create tech stack list
     modalTechList.replaceChildren();
     techStack.forEach((tech) => {

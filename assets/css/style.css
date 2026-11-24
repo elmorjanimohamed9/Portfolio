@@ -2843,3 +2843,9 @@ textarea.form-input::-webkit-resizer {
 }
 .lang-btn:hover { border-color: var(--orange-yellow-crayola); }
 .lang-btn:focus-visible { outline: 2px solid var(--white-1); outline-offset: 2px; }
+
+/* Project screenshot gallery */
+.project-gallery { display: flex; gap: 12px; overflow-x: auto; padding: 4px 0 12px; margin-bottom: 16px; scroll-snap-type: x mandatory; }
+.project-gallery[hidden] { display: none; }
+.project-gallery img { height: 360px; width: auto; flex: 0 0 auto; border-radius: 14px; scroll-snap-align: start; border: 1px solid var(--jet, #383838); }
+@media (max-width: 580px) { .project-gallery img { height: 280px; } }
