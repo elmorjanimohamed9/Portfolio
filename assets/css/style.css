@@ -2736,3 +2736,26 @@ textarea.form-input::-webkit-resizer {
 }
 
 .project-logo { display: inline-block; vertical-align: middle; margin-right: 8px; height: 26px; width: auto; background: #fff; border-radius: 6px; padding: 2px 3px; }
+
+.testimonials-role { color: var(--light-gray-70); font-size: 12px; line-height: 1.5; margin: -4px 0 10px; }
+.testimonials-role span { color: var(--orange-yellow-crayola); }
+
+.testimonials-avatar-box img { aspect-ratio: 1; object-fit: cover; }
+
+.testimonials-modal .modal-img-wrapper { margin: 0 0 12px; overflow: visible; }
+
+.testimonials-modal .modal-avatar-box img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.testimonials-modal [data-modal-text] {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
